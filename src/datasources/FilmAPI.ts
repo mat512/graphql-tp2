@@ -9,12 +9,16 @@ export class FilmAPI extends RESTDataSource {
     }
 
     getFilmBy(id: string[]) {
-        let list = [];
+        let requests = [];
+
         id.forEach((x) => {
-            list.push(this.get<FilmModel>(`films/${x.split("/")[4]}`));
+            // Get only UID in URL
+            const uid = x.split("/")[4];
+
+            if (uid !== "") requests.push(this.get<FilmModel>(`films/${uid}`));
         });
 
-        return list;
+        return requests;
     }
 
     getPeoples() {
@@ -22,11 +26,14 @@ export class FilmAPI extends RESTDataSource {
     }
 
     getPeopleBy(id: string[]) {
-        let list = [];
+        let requests = [];
+        
         id.forEach((x) => {
-            list.push(this.get<PeopleModel>(`people/${x.split("/")[4]}`));
+            const uid = x.split("/")[4];
+
+            if (uid !== "") requests.push(this.get<PeopleModel>(`people/${uid}`));
         });
 
-        return list;
+        return requests;
     }
 }
