@@ -19,17 +19,17 @@ export type Scalars = {
 
 export type Film = {
   __typename?: 'Film';
-  id?: Maybe<Scalars['ID']['output']>;
-  people?: Maybe<Array<Maybe<People>>>;
-  title?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  people: Array<Maybe<People>>;
+  title: Scalars['String']['output'];
 };
 
 export type People = {
   __typename?: 'People';
-  eye_color?: Maybe<Scalars['String']['output']>;
-  films?: Maybe<Array<Maybe<Film>>>;
-  id?: Maybe<Scalars['ID']['output']>;
-  name?: Maybe<Scalars['String']['output']>;
+  eyeColor: Scalars['String']['output'];
+  films: Array<Maybe<Film>>;
+  id: Scalars['ID']['output'];
+  name: Scalars['String']['output'];
 };
 
 export type Query = {
@@ -128,17 +128,17 @@ export type ResolversParentTypes = {
 };
 
 export type FilmResolvers<ContextType = DataSourceContext, ParentType extends ResolversParentTypes['Film'] = ResolversParentTypes['Film']> = {
-  id?: Resolver<Maybe<ResolversTypes['ID']>, ParentType, ContextType>;
-  people?: Resolver<Maybe<Array<Maybe<ResolversTypes['People']>>>, ParentType, ContextType>;
-  title?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  people?: Resolver<Array<Maybe<ResolversTypes['People']>>, ParentType, ContextType>;
+  title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export type PeopleResolvers<ContextType = DataSourceContext, ParentType extends ResolversParentTypes['People'] = ResolversParentTypes['People']> = {
-  eye_color?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  films?: Resolver<Maybe<Array<Maybe<ResolversTypes['Film']>>>, ParentType, ContextType>;
-  id?: Resolver<Maybe<ResolversTypes['ID']>, ParentType, ContextType>;
-  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  eyeColor?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  films?: Resolver<Array<Maybe<ResolversTypes['Film']>>, ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 

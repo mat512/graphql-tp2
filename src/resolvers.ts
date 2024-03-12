@@ -17,6 +17,7 @@ export const resolvers: Resolvers = {
     },
 
     People: {
+        eyeColor: ({eye_color}) => eye_color,
         films: (parent, args, context, info) => {
             return context.dataSources.filmApi.getFilmBy(parent.films);
         },
